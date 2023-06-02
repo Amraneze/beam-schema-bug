@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group 'org.apache.beam'
+version "$version"
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        url "https://packages.confluent.io/maven/"
+    }
+}
+
+
+dependencies {
+    implementation "ch.qos.logback:logback-classic:$logbackVersion"
+    implementation "org.apache.beam:beam-sdks-java-core:$beamVersion"
+    implementation "org.apache.beam:beam-runners-direct-java:$beamVersion"
+    implementation "com.github.javafaker:javafaker:$javaFakerVersion"
+
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+}
